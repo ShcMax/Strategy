@@ -10,15 +10,14 @@ public class CommandButtonsPresenter : MonoBehaviour
     [SerializeField] private AssetContext _context;
 
     private ISelectable _currentSelectable;
-    // Start is called before the first frame update
+    
     void Start()
     {
         _selectable.OnSelected += OnSelected;
         OnSelected(_selectable.CurrentValue);
         _view.OnClick += OnButtonClick;
     }
-
-    // Update is called once per frame
+    
     private void OnSelected(ISelectable selectable)
     {
         if (_currentSelectable == selectable)
@@ -48,7 +47,26 @@ public class CommandButtonsPresenter : MonoBehaviour
         var attacker = commandExecutor as CommandExecutorBase<IAttackCommand>;
         if(attacker != null)
         {
-            //attacker.ExecuteSpecificCommand(_context.Inject(new ()));
+            attacker.ExecuteSpecificCommand(_context.Inject(new AttackCommand()));
+            return;
+        }
+        var stopper = commandExecutor as CommandExecutorBase<IStopCommand>;
+        if(stopper != null)
+        {
+            stopper.ExecuteSpecificCommand(_context.Inject(new StopCommand()));
+            return;
+        }
+        var mover = commandExecutor as CommandExecutorBase<IMoveCommand>;
+        if(mover != null)
+        {
+            mover.ExecuteSpecificCommand(_context.Inject(new MoveCommand()));
+            return;
+        }
+        var patrol = commandExecutor as CommandExecutorBase<IPatrolCommand>;
+        if(patrol != null)
+        {
+            patrol.ExecuteSpecificCommand(_context.Inject(new PatrolCommand()));
+            return;
         }
         throw new ApplicationException($"{nameof(CommandButtonsPresenter)}.{nameof(OnButtonClick)}:Unknown type of command executor: {commandExecutor.GetType().FullName}!");        
     }

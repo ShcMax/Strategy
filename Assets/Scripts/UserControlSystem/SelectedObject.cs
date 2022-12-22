@@ -9,8 +9,8 @@ public class SelectedObject : MonoBehaviour
     [SerializeField] private GameObject _mainBuildingPrefab;
     [SerializeField] private MainBuilding mainBuilding;
 
-    [Header("SelectedZoneBuildings")]
-    [SerializeField] private GameObject _selectedMainBuildingZone;
+    //[Header("SelectedZoneBuildings")]
+    //[SerializeField] private GameObject _selectedMainBuildingZone;
 
     void Start()
     {
@@ -22,11 +22,11 @@ public class SelectedObject : MonoBehaviour
     {        
         if (selected != null && _mainBuildingPrefab.GetComponent<MainBuilding>())
         {            
-            _selectedMainBuildingZone.SetActive(true);            
+            //_selectedMainBuildingZone.SetActive(true);            
         }
         else
         {
-            _selectedMainBuildingZone.SetActive(false);            
+            //_selectedMainBuildingZone.SetActive(false);            
         }        
     }
 
