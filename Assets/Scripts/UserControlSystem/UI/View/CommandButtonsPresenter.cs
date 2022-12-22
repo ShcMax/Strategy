@@ -45,6 +45,11 @@ public class CommandButtonsPresenter : MonoBehaviour
             unitProducer.ExecuteSpecificCommand(_context.Inject(new ProduceUnitCommand()));
             return;
         }
+        var attacker = commandExecutor as CommandExecutorBase<IAttackCommand>;
+        if(attacker != null)
+        {
+            //attacker.ExecuteSpecificCommand(_context.Inject(new ()));
+        }
         throw new ApplicationException($"{nameof(CommandButtonsPresenter)}.{nameof(OnButtonClick)}:Unknown type of command executor: {commandExecutor.GetType().FullName}!");        
     }
 }
