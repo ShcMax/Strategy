@@ -13,10 +13,10 @@ public class MoveCommandCommandCreator : CommandCreatorBase<IMoveCommand>
     [Inject]
     private void Init(Vector3Value groundClicks)
     {
-        groundClicks.OnNewValue += onNewValue;
+        groundClicks.OnNewValue += ONNewValue;
     }
 
-    private void onNewValue(Vector3 groundClick)
+    private void ONNewValue(Vector3 groundClick)
     {
         _creationsCallback?.Invoke(_context.Inject(new MoveCommand(groundClick)));
         _creationsCallback = null;
