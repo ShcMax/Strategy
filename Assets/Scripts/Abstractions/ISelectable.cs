@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    public interface ISelectable
+    public interface ISelectable: IHealthHolder
     {
         float Health { get; }
         float MaxHealth { get; }
