@@ -1,3 +1,4 @@
 ﻿public class PatrolCommand : IPatrolCommand
 {
+
 }

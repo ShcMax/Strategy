@@ -1,3 +1,4 @@
+using Codice.Client.Common.GameUI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,6 +34,24 @@ public class CommandButtonsView : MonoBehaviour
 
     }
 
+    public void BlockInteraction(ICommandExecutor ce)
+    {
+        UnblockAllInteractions();
+        getButtonGameObjectByType(ce.GetType())
+            .GetComponent<Selectable>().interactable = false;
+    }
+
+    public void UnblockAllInteractions() =>setInteractible(true);
+
+    private void setInteractible(bool value)
+    {
+        _attackButton.GetComponent<Selectable>().interactable = value;
+        _moveButton.GetComponent<Selectable>().interactable = value;
+        _patrolButton.GetComponent<Selectable>().interactable = value;
+        _stopButton.GetComponent<Selectable>().interactable = value;
+        _produceUnitButton.GetComponent<Selectable>().interactable = value;
+    }
+
     public void MakeLayout(List<ICommandExecutor> commandExecutors)
     {
         for (var index = 0; index < commandExecutors.Count; index++)
@@ -47,6 +66,14 @@ public class CommandButtonsView : MonoBehaviour
             var button = buttonGameObject.GetComponent<Button>();
             button.onClick.AddListener(() => OnClick?.Invoke(currentExecutor));
         }
+    }
+
+    private GameObject getButtonGameObjectByType(Type executorInstanceType)
+    {
+        return _buttonsByExecutorType
+            .Where(type => type.Key.IsAssignableFrom(executorInstanceType))
+            .First()
+            .Value;
     }
 
     public void Clear()
