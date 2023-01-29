@@ -8,7 +8,7 @@ using UnityEngine.Assertions;
 public static class AssetsInjector
 {
     private static readonly Type _injectAssetAttributeType = typeof(InjectAssetAttribute);
-    public static T Inject<T>(this AssetContext context, T target)
+    public static T Inject<T>(this AssetsContext context, T target)
     {
         var targetType = target.GetType();       
         while (targetType != null)
