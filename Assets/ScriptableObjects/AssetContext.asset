@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: AssetContext
+  m_Name: AssetContext 1
   m_EditorClassIdentifier: Utils::AssetContext
-  _objects: []
+  _objects:
+  - {fileID: 8559996626522229206, guid: 306f8fcb4b17b824b83e6d937ea47b4f, type: 3}
