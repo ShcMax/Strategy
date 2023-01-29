@@ -6,7 +6,7 @@ using Zenject;
 
 public class MoveCommandCommandCreator : CommandCreatorBase<IMoveCommand>
 {
-    [Inject] private AssetContext _context;
+    [Inject] private AssetsContext _context;
 
     private Action<IMoveCommand> _creationsCallback;
 

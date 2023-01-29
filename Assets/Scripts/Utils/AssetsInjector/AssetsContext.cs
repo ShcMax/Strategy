@@ -4,8 +4,8 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 using System;
 
-[CreateAssetMenu(fileName = nameof(AssetContext), menuName = "Strategy Game/" + nameof(AssetContext), order = 0)]
-public class AssetContext : ScriptableObject
+[CreateAssetMenu(fileName = nameof(AssetsContext), menuName = "Strategy Game/" + nameof(AssetsContext), order = 0)]
+public class AssetsContext : ScriptableObject
 {
     [SerializeField] private Object[] _objects;
     public Object GetObjectOfType(Type targetType, string targetName = null)

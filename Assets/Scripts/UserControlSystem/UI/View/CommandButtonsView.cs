@@ -31,7 +31,6 @@ public class CommandButtonsView : MonoBehaviour
         _buttonsByExecutorType
         .Add(typeof(CommandExecutorBase<IProduceUnitCommand>),
         _produceUnitButton);
-
     }
 
     public void BlockInteraction(ICommandExecutor ce)
@@ -67,7 +66,6 @@ public class CommandButtonsView : MonoBehaviour
             button.onClick.AddListener(() => OnClick?.Invoke(currentExecutor));
         }
     }
-
     private GameObject getButtonGameObjectByType(Type executorInstanceType)
     {
         return _buttonsByExecutorType

@@ -2576,6 +2576,8 @@ MonoBehaviour:
   _camera: {fileID: 963194227}
   _selectedObject: {fileID: 11400000, guid: 468df7e254084e341834f31724310d9f, type: 2}
   _eventSystem: {fileID: 1697984975}
+  _groundClicksRMB: {fileID: 0}
+  _groundTransform: {fileID: 0}
 --- !u!4 &1313247573
 Transform:
   m_ObjectHideFlags: 0

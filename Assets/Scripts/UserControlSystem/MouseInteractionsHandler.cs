@@ -12,6 +12,7 @@ public class MouseInteractionsHandler : MonoBehaviour
 
     [SerializeField] private Vector3Value _groundClicksRMB;
     [SerializeField] private Transform _groundTransform;
+    
 
     private Plane _groundPlane;
 
