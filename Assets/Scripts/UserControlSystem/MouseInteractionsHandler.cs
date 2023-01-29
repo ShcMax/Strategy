@@ -42,9 +42,16 @@ public class MouseInteractionsHandler : MonoBehaviour
             }
             var selectable = hits
                 .Select(hit => hit.collider.GetComponentInParent<ISelectable>())
-                .Where(c => c != null)
-                .FirstOrDefault();
+                .FirstOrDefault(c => c != null);
+                
             _selectedObject.SetValue(selectable);
+        }
+        else
+        {
+            if(_groundPlane.Raycast(ray, out var enter))
+            {
+                _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
+            }
         }
     }
 }
